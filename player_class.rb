@@ -6,7 +6,7 @@ class Player
 
   def rules
     system('clear')
-    
+
     puts "\nWhether you play the regular game on paper or you play Yahtzee online, the scoring combinations for Yahtzee always include:"
 
     puts "\n*** Five of a Kind ***\n  If all five dice show the same value, you get 50 points. This is known as a 'Yahtzee'."
@@ -29,5 +29,4 @@ class Player
 
     puts "\nIn this case you would earn 3 x 4 = 12 points. If you score a total of at least 63 points in the upper section, a bonus of 35 points is added to your score.\n\n"
   end
-
 end
