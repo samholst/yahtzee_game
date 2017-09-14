@@ -21,18 +21,21 @@ class Scorecard
   end
 
   def show_unused
+    puts "\n\n"
     print @unused_card.keys
   end
 
   def show_current_score
+    puts "\n\n"
     print @current_score
   end
 
-  def decide_what_to_do
-    puts "Please make a decision. Here's what you can choose from:"
+  def decide_what_to_do dice_arr
+    puts "\n\nPlease make a decision. Here's what you can choose from:"
     show_unused
     puts "Type in what you want:"
-    @user_input = gets.chomp.downcase
+    user_input = gets.chomp.downcase
+    calculate_score dice_arr, user_input
   end
 
   def calculate_score dice_arr, choice
@@ -114,7 +117,7 @@ class Scorecard
   end
 
   def final_score
-    p "Current Score is: " + "#{@current_score.values.inject(&:+)}"
+    p "\n\nCurrent Score is: " + "#{@current_score.values.inject(&:+)}"
   end
 
   def one_to_six dice_arr, choice
@@ -140,17 +143,18 @@ class Scorecard
     end
 end
 
-# scorecard_class = Scorecard.new
-# scorecard_class.calculate_score([1,3,4,5,6], "Ones")
-# scorecard_class.calculate_score([1,3,4,5,6], "Threes")
-# scorecard_class.calculate_score([4,3,6,5,6], "Small straight")
-# scorecard_class.calculate_score([2,3,4,5,6], "Large straight")
-# scorecard_class.calculate_score([2,2,2,6,6], "Full house")
-# scorecard_class.calculate_score([2,2,2,5,6], "Three of a kind")
-# scorecard_class.calculate_score([2,2,2,2,6], "Four of a kind")
-# scorecard_class.calculate_score([2,2,2,2,2], "Yahtzee")
-# scorecard_class.show_current_score
+scorecard_class = Scorecard.new
+# scorecard_class.calculate_score([1,3,4,5,6], "ones")
+# scorecard_class.calculate_score([1,3,4,5,6], "threes")
+# scorecard_class.calculate_score([4,3,6,5,6], "small straight")
+# scorecard_class.calculate_score([2,3,4,5,6], "large straight")
+# scorecard_class.calculate_score([2,2,2,6,6], "full house")
+# scorecard_class.calculate_score([2,2,2,5,6], "three of a kind")
+# scorecard_class.calculate_score([2,2,2,2,6], "four of a kind")
+# scorecard_class.calculate_score([2,2,2,2,2], "yahtzee")
+
 # puts
 # puts "unused:"
-# scorecard_class.show_unused
+# puts scorecard_class.show_unused
+# puts scorecard_class.show_current_score
 # scorecard_class.final_score

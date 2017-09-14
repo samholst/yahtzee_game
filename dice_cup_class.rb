@@ -10,7 +10,7 @@ class DiceCup
   end
 
   def roll number
-    puts "rolling...."
+    puts "\nrolling....\n"
     sleep 2
     @roll_count += 1
     cup = []
@@ -24,12 +24,12 @@ class DiceCup
   def keep_dice cup
     kept_array = []
     if @roll_count != 3
-      puts "This is your cup: #{cup} Enter in the numbers you'd like to keep."
+      puts "\n\nThis is your cup: #{cup} Enter in the numbers you'd like to keep."
       user_input = gets.chomp.gsub(',', '').split.each { |number| kept_array << number.to_i }
     end
     @player_hand = kept_array
     if kept_array.length == 5 || @roll_count == 3
-      puts "End of round, here is your final cup: #{cup}"
+      puts "\n\nEnd of round, here is your final cup: #{cup}"
       return cup
     else
       roll 5 - (kept_array.length)
