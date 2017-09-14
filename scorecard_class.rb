@@ -61,7 +61,7 @@ class Scorecard
           end
 
           @current_score["Small Straight"] = straight ? 30 : 0
-          @unused_card.keys.delete("Small Straight")
+          @unused_card.delete("Small Straight")
         else
           p "You've already used that scoring category"
           decide_what_to_do
@@ -78,7 +78,7 @@ class Scorecard
           end
 
           @current_score["Large Straight"] = straight ? 40 : 0
-          @unused_card.keys.delete("Large Straight")
+          @unused_card.delete("Large Straight")
         else
           p "You've already used that scoring category"
           decide_what_to_do
@@ -94,22 +94,22 @@ class Scorecard
       	check dice_arr
         dice_arr.keep_if {@counts.key(2) && @counts.key(3) }
         @current_score["Full House"] = 25
-        @unused_card.keys.delete("Full House")
+        @unused_card.delete("Full House")
       when "four of a kind"
       	check dice_arr
         dice_arr.keep_if { @counts.key(4) }
         @current_score["4 of a kind"] = dice_arr.inject(&:+)
-        @unused_card.keys.delete("4 of a kind")
+        @unused_card.delete("4 of a kind")
       when "three of a kind"
       	check dice_arr
         dice_arr.keep_if { @counts.key(3) }
         @current_score["3 of a kind"] = dice_arr.inject(&:+)
-        @unused_card.keys.delete("3 of a kind")
+        @unused_card.delete("3 of a kind")
       when "yahtzee"
       	check dice_arr
         dice_arr.keep_if { @counts.key(5) }
         @current_score["Yahtzee"] = 50
-        @unused_card.keys.delete("Yahtzee")
+        @unused_card.delete("Yahtzee")
     	end
   end
 
@@ -123,7 +123,7 @@ class Scorecard
       dice_arr.keep_if { |d| choice_number["#{choice.capitalize}"].match(d.to_s) }
       dice_arr.empty? ? dice_arr = [0] : ''
       @current_score["#{choice.capitalize}"] = dice_arr.inject(&:+)
-      @unused_card.keys.delete("#{choice.capitalize}")
+      @unused_card.delete("#{choice.capitalize}")
     else
       print "You've already used that scoring category"
       decide_what_to_do
@@ -150,4 +150,7 @@ end
 # scorecard_class.calculate_score([2,2,2,2,6], "Four of a kind")
 # scorecard_class.calculate_score([2,2,2,2,2], "Yahtzee")
 # scorecard_class.show_current_score
+# puts
+# puts "unused:"
+# scorecard_class.show_unused
 # scorecard_class.final_score
