@@ -1,10 +1,13 @@
 class Player
+<<<<<<< HEAD
   attr_accessor :player_scorecard, :player_dicecup
 
   def initialize
     @player_scorecard = Scorecard.new
     @player_dicecup = DiceCup.new
   end
+=======
+>>>>>>> e0c94bb627ab88f11e11c3d7994e1c888eefd12d
 
   def rules
     system('clear')

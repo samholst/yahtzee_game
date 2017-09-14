@@ -1,10 +1,11 @@
-require 'byebug'
-
 class DiceCup
 
+<<<<<<< HEAD
   # def initialize
   #   first_roll
   # end
+=======
+>>>>>>> e0c94bb627ab88f11e11c3d7994e1c888eefd12d
 
   def first_roll
     @player_hand = []
