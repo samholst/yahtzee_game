@@ -143,7 +143,7 @@ class Scorecard
     end
 end
 
-scorecard_class = Scorecard.new
+# scorecard_class = Scorecard.new
 # scorecard_class.calculate_score([1,3,4,5,6], "ones")
 # scorecard_class.calculate_score([1,3,4,5,6], "threes")
 # scorecard_class.calculate_score([4,3,6,5,6], "small straight")
