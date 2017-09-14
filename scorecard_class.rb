@@ -1,5 +1,6 @@
 class Scorecard
-  SCORECARD = { "Ones" => 0,
+  SCORECARD = {
+                "Ones" => 0,
     						"Twos" => 0,
                 "Threes" => 0,
                 "Fours" => 0,
@@ -12,7 +13,7 @@ class Scorecard
                 "Large Straight" => 40,
                 "Yahtzee" => 50,
                 "Chance" => 0
-    }
+              }
 
   def initialize
     @unused_card = SCORECARD
