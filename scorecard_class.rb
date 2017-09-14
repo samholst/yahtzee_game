@@ -98,12 +98,12 @@ class Scorecard
         dice_arr.keep_if {@counts.key(2) && @counts.key(3) }
         @current_score["Full House"] = 25
         @unused_card.delete("Full House")
-      when "four of a kind"
+      when "4 of a kind"
       	check dice_arr
         dice_arr.keep_if { @counts.key(4) }
         @current_score["4 of a kind"] = dice_arr.inject(&:+)
         @unused_card.delete("4 of a kind")
-      when "three of a kind"
+      when "3 of a kind"
       	check dice_arr
         dice_arr.keep_if { @counts.key(3) }
         @current_score["3 of a kind"] = dice_arr.inject(&:+)
