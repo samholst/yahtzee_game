@@ -1,7 +1,9 @@
 class Player
+  attr_accessor :player_scorecard, :player_dicecup
+
   def initialize
     @player_scorecard = Scorecard.new
-    @player_dicecup = Dicecup.new
+    @player_dicecup = DiceCup.new
   end
 
   def rules

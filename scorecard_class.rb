@@ -28,8 +28,8 @@ class Scorecard
   def show_current_score
     print @current_score
   end
-  
-  def decide_what_to_do_bitch 
+
+  def decide_what_to_do
     puts "Please make a decision. Here's what you can choose from:"
     show_unused
     puts "Type in what you want:"
@@ -65,7 +65,7 @@ class Scorecard
           @unused_card.delete("Small Straight")
         else
           p "You've already used that scoring category"
-          decide_what_to_do_bitch 
+          decide_what_to_do
         end
       when "Large straight"
         if @unused_card.include?("Large Straight")
@@ -82,14 +82,14 @@ class Scorecard
           @unused_card.delete("Large Straight")
         else
           p "You've already used that scoring category"
-          decide_what_to_do_bitch 
+          decide_what_to_do
         end
       when "Chance"
         if @unused_card.include?("Large Straight")
           @current_score["Chance"] = dice_arr.inject(&:+)
         else
           p "You've already used that scoring category"
-          decide_what_to_do_bitch 
+          decide_what_to_do
         end
   		when "Full house"
       	check dice_arr
@@ -127,10 +127,10 @@ class Scorecard
       @unused_card.delete("#{choice.capitalize}")
     else
       print "You've already used that scoring category"
-      decide_what_to_do_bitch 
+      decide_what_to_do
     end
   end
-  
+
   def check dice_arr
     @counts = {}
 
@@ -141,14 +141,14 @@ class Scorecard
     end
 end
 
-scorecard_class = Scorecard.new
+# scorecard_class = Scorecard.new
 # scorecard_class.calculate_score([1,3,4,5,6], "Ones")
 # scorecard_class.calculate_score([1,3,4,5,6], "Threes")
-scorecard_class.calculate_score([4,3,6,5,6], "Small straight")
-scorecard_class.calculate_score([2,3,4,5,6], "Large straight")
-scorecard_class.calculate_score([2,2,2,6,6], "Full house")
+# scorecard_class.calculate_score([4,3,6,5,6], "Small straight")
+# scorecard_class.calculate_score([2,3,4,5,6], "Large straight")
+# scorecard_class.calculate_score([2,2,2,6,6], "Full house")
 # scorecard_class.calculate_score([2,2,2,5,6], "Three of a kind")
 # scorecard_class.calculate_score([2,2,2,2,6], "Four of a kind")
 # scorecard_class.calculate_score([2,2,2,2,2], "Yahtzee")
-scorecard_class.show_current_score
-scorecard_class.final_score
+# scorecard_class.show_current_score
+# scorecard_class.final_score
