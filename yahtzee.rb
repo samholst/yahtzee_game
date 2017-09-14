@@ -14,10 +14,10 @@ class Yahtzee
     @player_class.rules
     puts "Would you like to play?"
     player_choice = gets.chomp.downcase
-    if "yes"
+    if player_choice == "yes"
 
     else
-      p "Good! We don't wanna play with you either."
+      puts "Good! We don't wanna play with you either."
       exit
     end
 
